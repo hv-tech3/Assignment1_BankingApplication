@@ -1,12 +1,10 @@
 import java.util.Scanner;
-
 class Account {
     private int accountNumber;
     private String accountHolderName;
     private double balance;
     private String email;
     private String phoneNumber;
-
 
     public Account(int accountNumber, String accountHolderName, double initialDeposit, String email, String phoneNumber) {
         this.accountNumber = accountNumber;
@@ -15,7 +13,6 @@ class Account {
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
-
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -24,7 +21,6 @@ class Account {
             System.out.println("Deposit amount must be positive!");
         }
     }
-
     public void withdraw(double amount) {
         if (amount > 0) {
             if (amount <= balance) {
@@ -37,7 +33,6 @@ class Account {
             System.out.println("Withdrawal amount must be positive!");
         }
     }
-
     public void displayAccountDetails() {
         System.out.println("\n--- Account Details ---");
         System.out.println("Account Number: " + accountNumber);
@@ -46,17 +41,14 @@ class Account {
         System.out.println("Email: " + email);
         System.out.println("Phone Number: " + phoneNumber);
     }
-
     public void updateContactDetails(String email, String phoneNumber) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         System.out.println("Contact details updated successfully.");
     }
-
     public int getAccountNumber() {
         return accountNumber;
-    }
-}
+    }}
 
 public class BankingApplication {
     private Account[] accounts;
@@ -88,16 +80,12 @@ public class BankingApplication {
         System.out.println("Account created successfully with Account Number: " + accountNumber);
         accountCount++;
     }
-
     private Account findAccount(int accNo) {
         for (int i = 0; i < accountCount; i++) {
             if (accounts[i].getAccountNumber() == accNo) {
                 return accounts[i];
-            }
-        }
-        return null;
+            }}return null;
     }
-
     public void performDeposit() {
         System.out.print("Enter account number: ");
         int accNo = sc.nextInt();
@@ -110,8 +98,7 @@ public class BankingApplication {
             acc.deposit(amt);
         } else {
             System.out.println("Account not found!");
-        }
-    }
+        }}
 
     public void performWithdrawal() {
         System.out.print("Enter account number: ");
@@ -125,8 +112,7 @@ public class BankingApplication {
             acc.withdraw(amt);
         } else {
             System.out.println("Account not found!");
-        }
-    }
+        }}
 
     public void showAccountDetails() {
         System.out.print("Enter account number: ");
@@ -140,7 +126,6 @@ public class BankingApplication {
             System.out.println("Account not found!");
         }
     }
-
     public void updateContact() {
         System.out.print("Enter account number: ");
         int accNo = sc.nextInt();
@@ -157,7 +142,6 @@ public class BankingApplication {
             System.out.println("Account not found!");
         }
     }
-
     public void mainMenu() {
         int choice;
         do {
@@ -170,7 +154,7 @@ public class BankingApplication {
             System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
             choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine();
 
             switch (choice) {
                 case 1: createAccount(); break;
@@ -187,4 +171,5 @@ public class BankingApplication {
     public static void main(String[] args) {
         BankingApplication app = new BankingApplication(100);
         app.mainMenu();
-    }}
+    }
+}
